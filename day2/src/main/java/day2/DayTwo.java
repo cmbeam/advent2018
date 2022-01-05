@@ -21,34 +21,31 @@ public class DayTwo {
         long threeCount = 0;
         for (String input:inputs
              ) {
-            char[] inputArray = input.toCharArray();
-            Arrays.sort(inputArray);
-            System.out.println(new String(inputArray));
+//            char[] inputArray = input.toCharArray();
+//            Arrays.sort(inputArray);
+//            System.out.println(new String(inputArray));
             boolean two = false, three = false;
             for (char letter:letters
                  ) {
 
-                if(input.matches(".*"+letter+".*"+letter+".*"+letter+".*"+letter+".*")){
+                if(!input.matches(".*"+letter+".*"+letter+".*"+letter+".*"+letter+".*")) {
 
-                }
-                else if(input.matches(".*"+letter+".*"+letter+".*"+letter+".*"))
-                {
-                    System.out.println("Three match: "+letter);
-                    three = true;
-                }
-                else if(input.matches(".*"+letter+".*"+letter+".*"))
-                {
-                    System.out.println("Two match: "+letter);
-                    two = true;
+                    if (input.matches(".*" + letter + ".*" + letter + ".*" + letter + ".*")) {
+                        //System.out.println("Three match: " + letter);
+                        three = true;
+                    } else if (input.matches(".*" + letter + ".*" + letter + ".*")) {
+                        //System.out.println("Two match: " + letter);
+                        two = true;
+                    }
                 }
             }
             if(two) {
                 twoCount++;
-                System.out.println("two " + twoCount);
+                //System.out.println("two " + twoCount);
             }
             if(three) {
                 threeCount++;
-                System.out.println("three " + threeCount);
+                //System.out.println("three " + threeCount);
             }
         }
         System.out.println("Answer part 1: "+(twoCount * threeCount));
